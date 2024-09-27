@@ -1,35 +1,54 @@
-// pages/about.js
+"use client"; // This makes it a Client Component
 
-import React from 'react';
-import Head from 'next/head';
+import Image from 'next/image';
+import { useEffect } from 'react';
 
-const About = () => {
+export default function About() {
+  useEffect(() => {
+    // IntersectionObserver to trigger animations on scroll
+    const sections = document.querySelectorAll('.animate-section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate-fadeIn');
+        }
+      });
+    });
+
+    sections.forEach((section) => observer.observe(section));
+  }, []);
+
   return (
-    <div className="px-8">
-      <Head>
-        <title>About Us</title>
-        <meta name="description" content="Learn more about our company and team." />
-      </Head>
-      <main className="min-h-screen py-16 flex flex-col justify-center items-center">
-        <h1 className="m-0 leading-tight text-4xl text-center">About Us</h1>
-        <p className="text-center text-xl mt-4">
-          Welcome to our company. We are dedicated to providing the best service possible.
-        </p>
-        <section className="mt-8 text-center">
-          <h2 className="text-2xl mb-4">Our Mission</h2>
-          <p>
-            Our mission is to deliver high-quality products that bring value to our customers.
-          </p>
-        </section>
-        <section className="mt-8 text-center">
-          <h2 className="text-2xl mb-4">Our Team</h2>
-          <p>
-            We have a diverse team of professionals who are passionate about what they do.
-          </p>
-        </section>
-      </main>
+    <div>
+      {/* About Me Section */}
+      <div className="flex flex-col items-center justify-center py-32 bg-gray-100 dark:bg-gray-700">
+        <div className="w-full max-w-4xl p-8 bg-white dark:bg-gray-800 shadow-lg rounded-lg animate-section">
+          <div className="flex flex-col md:flex-row">
+            <div className="w-full md:w-1/3 flex justify-center items-center mb-8 md:mb-0">
+              <div className="relative w-48 h-48 rounded-full overflow-hidden hover:scale-110 transition-transform duration-300">
+                <Image
+                  src="/yatin.jpg"  // Direct reference to the image in the public folder
+                  alt="Profile"
+                  layout="fill"
+                  objectFit="cover"
+                  className="rounded-full"
+                />
+              </div>
+            </div>
+            <div className="w-full md:w-2/3 flex flex-col justify-center">
+              <h1 className="text-4xl font-bold text-gray-800 dark:text-white mb-4">
+                About Me
+              </h1>
+              <p className="text-gray-600 dark:text-gray-50 text-lg mb-4">
+                Hello, I am Yatin, interested in cybersecurity and competitive programming. Here I will post my Writeups and blogs related to cybersecurity.
+              </p>
+              <p className="text-gray-600 dark:text-gray-50 text-lg">
+                Here you will get solutions to TryHackMe rooms and some writeups of CTF challenges.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
-};
-
-export default About;
+}

@@ -1,4 +1,10 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-export default nextConfig;
+const nextConfig = {
+    reactStrictMode: true,
+    images: {
+      domains: ['via.placeholder.com'], // Add external image domain
+    },
+  };
+  
+  export default nextConfig;
+  
