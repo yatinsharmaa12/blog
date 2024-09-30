@@ -28,7 +28,7 @@ export default function Home() {
             A <span className="font-semibold">Blogs</span> Related to <br className="hidden lg:block" /> <span className="font-semibold underline decoration-primary"><span ref={el} /></span>
           </h1>
           
-          <div className="mt-6 bg-transparent border rounded-lg dark:border-gray-700 lg:w-2/3 focus-within:border-primary focus-within:ring focus-within:ring-primary dark:focus-within:border-primary focus-within:ring-opacity-20">
+          <div className="mt-6 bg-transparent border rounded-lg dark:bg-neutral-950 lg:w-2/3 focus-within:border-primary focus-within:ring focus-within:ring-primary dark:focus-within:border-primary focus-within:ring-opacity-20">
             <form action="https://www.creative-tim.com/twcomponents/search" className="flex flex-wrap justify-between md:flex-row">
              
             </form>
